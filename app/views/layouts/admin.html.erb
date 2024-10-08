@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BrioDeAgohoApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="flex h-screen">
+        <nav class="sidebar basis-1/4 bg-green-800 text-white text-center uppercase font-medium">
+            <ul>
+                <li class="py-4 border-b text-xl text-orange-400">
+                    <%= link_to admin_path, class: 'link' do %>
+                        Admin Dashboard
+                    <% end %>
+                </li>
+                <li class="py-4 border-b">
+                    <%= link_to admin_path, class: 'link' do %>
+                        Sales Summary & Payment Transactions
+                    <% end %>
+                </li>
+                <li class="py-4 border-b">
+                    <%= link_to admin_path, class: 'link' do %>
+                        Affiliate Database
+                    <% end %>
+                </li>
+                <li class="py-4 border-b">
+                    <%= link_to admin_path, class: 'link' do %>
+                        Buyers Database
+                    <% end %>
+                </li>
+                <li class="py-4 border-b">
+                    <%= link_to admin_path, class: 'link' do %>
+                        Payment History
+                    <% end %>
+                </li>
+                <li class="py-4 border-b">
+                    <% if admin_signed_in? %>
+                        <%= link_to "Sign out", destroy_admin_session_path, data: { 'turbo-method' => :delete, 'turbo_confirm' => "Are you sure?"  } %>
+                    <% end %>
+                </li>
+            </ul>
+        </nav>
+        <main class="flex-1 m-4">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= yield %>
+        </main>
+    </div>
+  </body>
+</html>
