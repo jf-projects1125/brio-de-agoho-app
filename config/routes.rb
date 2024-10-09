@@ -14,8 +14,13 @@ Rails.application.routes.draw do
     root to: "affiliate#index", as: :affiliate_root
   end
 
+  # resources :affiliate
+
   get "admin" => "admin#index"
   get "affiliate" => "affiliate#index"
+  get "affiliate/profile" => "affiliate#profile"
+  get "affiliate/edit" => "affiliate#edit"
+  patch "affiliate/update" => "affiliate#update"
 
   get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

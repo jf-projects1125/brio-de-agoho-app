@@ -1,0 +1,15 @@
+<%= image_tag 'user.png', alt: 'src', class: "w-36 h-36 inline-block" %>
+<h1 class="inline-block text-3xl"><%= @affiliate.fullname %></h1>
+
+<div>
+    <p>Referral Code: <span><%= @affiliate.id %></span></p>
+    <p>Birthday: <span><%= @affiliate.birthday.strftime("%B %d, %Y") %></span></p>
+    <p>Age: <span><%= @affiliate.birthday %></span></p>
+    <p>Address: <span><%= @affiliate.address %></span></p>
+    <p>Contact No.: <span><%= @affiliate.mobile %></span></p>
+    <p>Email: <span><%= @affiliate.email %></span></p>
+</div>
+
+<%= link_to affiliate_edit_path, class: 'link' do %>
+    Edit
+<% end %>
