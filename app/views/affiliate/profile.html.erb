@@ -2,12 +2,17 @@
 <h1 class="inline-block text-3xl"><%= @affiliate.fullname %></h1>
 
 <div>
-    <p>Referral Code: <span><%= @affiliate.id %></span></p>
+    <p>Referral Code: <span><%= @affiliate.id.to_s.rjust(4, '0') %></span></p>
     <p>Birthday: <span><%= @affiliate.birthday.strftime("%B %d, %Y") %></span></p>
-    <p>Age: <span><%= @affiliate.birthday %></span></p>
+    <p>Age: <span><%= @age %></span></p>
     <p>Address: <span><%= @affiliate.address %></span></p>
     <p>Contact No.: <span><%= @affiliate.mobile %></span></p>
     <p>Email: <span><%= @affiliate.email %></span></p>
+    <p>Facebook: <span><%= @affiliate.fb %></span></p>
+    <p>Instagram: <span><%= @affiliate.ig %></span></p>
+    <p>Tiktok: <span><%= @affiliate.tiktok %></span></p>
+    <p>Youtube: <span><%= @affiliate.youtube %></span></p>
+    <p>Others: <span><%= @affiliate.others %></span></p>
 </div>
 
 <%= link_to affiliate_edit_path, class: 'link' do %>

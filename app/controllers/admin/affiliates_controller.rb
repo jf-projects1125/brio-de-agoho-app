@@ -23,6 +23,6 @@ class Admin::AffiliatesController < AdminController
 
   private
   def admin_affiliate_params
-    params.require(:affiliate).permit(:fullname, :email, :password, :password_confirmation, :address, :mobile )
+    params.require(:affiliate).permit(:fullname, :email, :password, :password_confirmation)
   end
 end

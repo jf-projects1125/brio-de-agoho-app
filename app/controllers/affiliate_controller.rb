@@ -8,6 +8,14 @@ class AffiliateController < ApplicationController
   end
 
   def profile
+    if @affiliate.birthday.present?
+      now = Time.now.utc.to_date
+      @age = now.year - @affiliate.birthday.to_date.year
+
+      if (now.month <= @affiliate.birthday.to_date.month)
+        @age = @age - 1
+      end
+    end
   end
 
   def edit
@@ -15,6 +23,7 @@ class AffiliateController < ApplicationController
 
   def update
     respond_to do |format|
+
       if @affiliate.update(affiliate_params)
         format.html { redirect_to affiliate_profile_path, notice: "Profile was successfully updated." }
         format.json { render :show, status: :ok, location: @affiliate }
@@ -31,6 +40,6 @@ class AffiliateController < ApplicationController
     end
 
     def affiliate_params
-      params.require(:affiliate).permit(:birthday, :address, :mobile)
+      params.require(:affiliate).permit(:birthday, :address, :mobile, :password, :password_confirmation, :fb, :ig, :tiktok, :youtube, :others, :type_of_id)
     end
 end
