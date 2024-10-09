@@ -16,33 +16,28 @@
         <nav class="sidebar basis-1/4 bg-green-800 text-white text-center uppercase font-medium">
             <ul>
                 <li class="py-4 border-b text-xl text-orange-400">
-                    <%= link_to admin_path, class: 'link' do %>
-                        Admin Dashboard
+                    <%= link_to affiliate_path, class: 'link' do %>
+                        Dashboard
                     <% end %>
                 </li>
                 <li class="py-4 border-b">
-                    <%= link_to admin_path, class: 'link' do %>
-                        Sales Summary & Payment Transactions
+                    <%= link_to affiliate_path, class: 'link' do %>
+                        Profile
                     <% end %>
                 </li>
                 <li class="py-4 border-b">
-                    <%= link_to admin_affiliates_path, class: 'link' do %>
-                        Affiliate Database
+                    <%= link_to affiliate_path, class: 'link' do %>
+                        My Account
                     <% end %>
                 </li>
                 <li class="py-4 border-b">
-                    <%= link_to admin_path, class: 'link' do %>
-                        Buyers Database
+                    <%= link_to affiliate_path, class: 'link' do %>
+                        Account Setting
                     <% end %>
                 </li>
                 <li class="py-4 border-b">
-                    <%= link_to admin_path, class: 'link' do %>
-                        Payment History
-                    <% end %>
-                </li>
-                <li class="py-4 border-b">
-                    <% if admin_signed_in? %>
-                        <%= link_to "Sign out", destroy_admin_session_path, data: { 'turbo-method' => :delete, 'turbo_confirm' => "Are you sure?"  } %>
+                    <% if affiliate_signed_in? %>
+                        <%= link_to "Sign out", destroy_affiliate_session_path, data: { 'turbo-method' => :delete, 'turbo_confirm' => "Are you sure?"  } %>
                     <% end %>
                 </li>
             </ul>

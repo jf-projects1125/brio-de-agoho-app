@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :affiliates
+  end
+  
   devise_for :affiliates
-  devise_for :admins
+  devise_for :admins, controllers: { sessions: 'admin/sessions'}
 
   authenticated :admin_user do
     root to: "admin#index", as: :admin_root
   end
 
+  authenticated :affiliate_user do
+    root to: "affiliate#index", as: :affiliate_root
+  end
+
   get "admin" => "admin#index"
+  get "affiliate" => "affiliate#index"
 
   get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
