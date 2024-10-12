@@ -1,7 +1,9 @@
-<%= image_tag 'user.png', alt: 'src', class: "w-36 h-36 inline-block" %>
-<h1 class="inline-block text-3xl"><%= @affiliate.fullname %></h1>
-
-<%= form_with(model: @affiliate, url: "/affiliate/update",class: "contents") do |form| %>
+<%= form_with(model: @affiliate, url: "/affiliate/update") do |form| %>
+  <div>
+    <%= image_tag @affiliate.avatar.present? ? @affiliate.avatar : 'user.png', alt: 'src', class: "w-36 h-36 inline-block rounded-full" %>
+    <h1 class="inline-block text-3xl"><%= @affiliate.fullname %></h1>
+    <%= form.file_field :avatar %>
+  </div>
   <% if @affiliate.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(@affiliate.errors.count, "error") %> prohibited this affiliate from being saved:</h2>
@@ -35,8 +37,12 @@
   </div>
 
   <div class="my-5">
+    <% if @affiliate.attached_id.present? %>
+      <%= image_tag @affiliate.attached_id, alt: 'src', class: "w-36 h-36" %>
+    <% end %>
     <%= form.label :type_of_id, "Identify Verification" %>
     <%= form.select :type_of_id, ["Drivers License", "UMID", "Philhealth", "Philippine passport", "NBI", "Posta ID", "TIN ID", "SSS ID"], required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.file_field :attached_id %>
   </div>
 
   <div class="my-5">

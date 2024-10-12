@@ -1,9 +1,9 @@
-<%= image_tag 'user.png', alt: 'src', class: "w-36 h-36 inline-block" %>
+<%= image_tag @affiliate.avatar.present? ? @affiliate.avatar : 'user.png', alt: 'src', class: "w-36 h-36 inline-block rounded-full" %>
 <h1 class="inline-block text-3xl"><%= @affiliate.fullname %></h1>
 
 <div>
     <p>Referral Code: <span><%= @affiliate.id.to_s.rjust(4, '0') %></span></p>
-    <p>Birthday: <span><%= @affiliate.birthday.strftime("%B %d, %Y") %></span></p>
+    <p>Birthday: <span><%= @affiliate.birthday.present? ? @affiliate.birthday.strftime("%B %d, %Y") : '' %></span></p>
     <p>Age: <span><%= @age %></span></p>
     <p>Address: <span><%= @affiliate.address %></span></p>
     <p>Contact No.: <span><%= @affiliate.mobile %></span></p>

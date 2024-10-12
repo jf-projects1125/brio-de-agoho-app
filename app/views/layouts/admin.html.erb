@@ -13,7 +13,7 @@
 
   <body>
     <div class="flex h-screen">
-        <nav class="sidebar basis-1/4 bg-green-800 text-white text-center uppercase font-medium">
+        <nav class="sidebar w-64 bg-green-800 text-white text-center uppercase font-medium">
             <ul>
                 <li class="py-4 border-b text-xl text-orange-400">
                     <%= link_to admin_path, class: 'link' do %>
@@ -47,7 +47,7 @@
                 </li>
             </ul>
         </nav>
-        <main class="flex-1 m-4">
+        <main class="flex-1 m-12">
             <p class="notice"><%= notice %></p>
             <p class="alert"><%= alert %></p>
             <%= yield %>

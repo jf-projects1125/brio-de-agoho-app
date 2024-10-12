@@ -15,10 +15,6 @@
     <main>
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
-
-        <% if affiliate_signed_in? %>
-          <%= link_to "Sign out", destroy_affiliate_session_path, data: { 'turbo-method' => :delete, 'turbo_confirm' => "Are you sure?"  }, class: "hover:bg-green-500 hover:text-white-50 rounded py-2 px-4" %>
-        <% end %>
         
       <%= yield %>
     </main>

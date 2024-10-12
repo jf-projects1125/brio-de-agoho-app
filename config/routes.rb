@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   get "affiliate/edit" => "affiliate#edit"
   patch "affiliate/update" => "affiliate#update"
 
+  get "sales/invest/form/:ref_code" => "sales#new", as: :sales_form
+  post "sales/invest/form/create" => "sales#create"
+  get "sales/invest/message" => "sales#message", as: :sales_message
+
   get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

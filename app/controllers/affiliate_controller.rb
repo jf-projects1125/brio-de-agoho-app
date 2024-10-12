@@ -40,6 +40,6 @@ class AffiliateController < ApplicationController
     end
 
     def affiliate_params
-      params.require(:affiliate).permit(:birthday, :address, :mobile, :password, :password_confirmation, :fb, :ig, :tiktok, :youtube, :others, :type_of_id)
+      params.require(:affiliate).permit(:birthday, :address, :mobile, :password, :password_confirmation, :fb, :ig, :tiktok, :youtube, :others, :type_of_id, :avatar, :attached_id)
     end
 end
