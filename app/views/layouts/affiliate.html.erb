@@ -15,14 +15,19 @@
     <div class="flex min-h-screen">
         <nav class="sidebar w-64 bg-green-800 text-white text-center uppercase font-medium">
             <ul>
-                <li class="py-4 border-b text-xl text-orange-400">
+                <li class="py-4 border-b text-xl text-orange-400 <%= request.fullpath.length == 10 ? 'bg-white' : '' %>">
                     <%= link_to affiliate_path, class: 'link' do %>
                         Dashboard
                     <% end %>
                 </li>
-                <li class="py-4 border-b">
+                <li class="py-4 border-b <%= request.fullpath.include?('profile') ? 'bg-white text-green-800' : '' %>">
                     <%= link_to affiliate_profile_path, class: 'link' do %>
                         Profile
+                    <% end %>
+                </li>
+                <li class="py-4 border-b">
+                    <%= link_to affiliate_path, class: 'link' do %>
+                        Sales
                     <% end %>
                 </li>
                 <li class="py-4 border-b">

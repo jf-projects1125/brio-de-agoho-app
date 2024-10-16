@@ -1,0 +1,41 @@
+<h1>Be a Co-owner</h1>
+<p>To be part of something amazing!</p>
+
+<p>Fill out the form to start journey with us</p>
+
+<%= form_with(model: @sale, url: "/sales/invest/form/create") do |form| %>
+    <% if form.object.errors.any? %>
+        <% form.object.errors.full_messages.each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    <% end %>
+    <div class="my-5">
+        <%= form.label :firstname %>
+        <%= form.text_field :firstname, required: true,  class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <%= form.text_field :status, value: "pending", class: "hidden" %>
+    </div>
+
+    <div class="my-5">
+        <%= form.label :lastname %>
+        <%= form.text_field :lastname, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+        <%= form.label :contact_no %>
+        <%= form.text_field :contact_no, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+        <%= form.label :email %>
+        <%= form.email_field :email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+        <%= form.label :affiliate_id, "Ref Code" %>
+        <%= form.text_field :affiliate_id, value: @ref_code, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <%= form.submit "Send" %>
+<% end %>

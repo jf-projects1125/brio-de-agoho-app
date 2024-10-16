@@ -1,45 +1,47 @@
-<%= form_with model: [:admin, @admin_affiliate] do |form| %>
-    <% if form.object.errors.any? %>
-        <% form.object.errors.full_messages.each do |message| %>
-            <div>
-                <%= message %>
-            </div>
-        <% end %>
-    <% end %>
-  <div class="field">
-    <%= form.label :fullname %><br />
-    <%= form.text_field :fullname %>
-  </div>
+<h1 class="text-2xl text-green-800 text-center uppercase font-medium mt-8 mb-4">Add New Affiliate</h1>
 
-  <div class="field">
-    <%= form.label :address %><br />
-    <%= form.text_field :address %>
-  </div>
+<div class="w-3/4 flex justify-center md:text-end sm:text-center mx-auto ml-8">
+  <%= form_with model: [:admin, @admin_affiliate], class: 'space-y-3' do |form| %>
+      <% if form.object.errors.any? %>
+          <% form.object.errors.full_messages.each do |message| %>
+              <div>
+                  <%= message %>
+              </div>
+          <% end %>
+      <% end %>
+    <div class="field">
+      <%= form.label :fullname %>
+      <%= form.text_field :fullname, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :mobile %><br />
-    <%= form.text_field :mobile %>
-  </div>
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_field :address, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent'  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email %><br />
-    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= form.label :mobile, "Contact No" %>
+      <%= form.text_field :mobile, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent'  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= form.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.email_field :email, autofocus: true, autocomplete: "email", class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %><br />
-    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= form.label :password %>
+  
+      <%= form.password_field :password, autocomplete: "new-password", class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit "Add New Affiliate" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= form.label :password_confirmation, "Password Confirm " %>
+      <%= form.password_field :password_confirmation, autocomplete: "new-password", class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Submit", class: "py-2 px-4 bg-green-800 rounded text-white" %>
+    </div>
+  <% end %>
+</div>

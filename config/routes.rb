@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
+    resources :sales
     resources :affiliates
   end
   
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   get "admin" => "admin#index"
   get "affiliate" => "affiliate#index"
   get "affiliate/profile" => "affiliate#profile"
-  get "affiliate/edit" => "affiliate#edit"
+  get "affiliate/profile/edit" => "affiliate#edit"
   patch "affiliate/update" => "affiliate#update"
 
   get "sales/invest/form/:ref_code" => "sales#new", as: :sales_form
