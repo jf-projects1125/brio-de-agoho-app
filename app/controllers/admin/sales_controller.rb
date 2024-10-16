@@ -17,7 +17,7 @@ class Admin::SalesController < AdminController
     respond_to do |format|
       if @admin_sale.update(admin_sale_params)
         format.html { redirect_to admin_sales_path, notice: "Sales was successfully updated." }
-        format.json { render :show, status: :ok, location: affiliate }
+        format.json { render :show, status: :ok, location: @admin_sale }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @admin_sale.errors, status: :unprocessable_entity }

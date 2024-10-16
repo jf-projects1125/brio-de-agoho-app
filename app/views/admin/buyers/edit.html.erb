@@ -1,0 +1,42 @@
+<h1 class="text-2xl text-green-800 text-center uppercase font-medium mt-8 mb-4">Update Sale</h1>
+
+<div class="w-3/4 flex justify-center md:text-end sm:text-center mx-auto ml-8">
+  <%= form_with model: [:admin, @admin_buyer], url: "/admin/buyers/#{@admin_buyer.id }" , class: 'space-y-3' do |form| %>
+        <% if form.object.errors.any? %>
+            <% form.object.errors.full_messages.each do |message| %>
+                <div>
+                    <%= message %>
+                </div>
+            <% end %>
+        <% end %>
+    <div class="field">
+      <%= form.label :lastname %>
+      <%= form.text_field :lastname, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent'  %>
+    </div>
+
+    <div class="field">
+      <%= form.label :firstname %>
+      <%= form.text_field :firstname, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent'  %>
+    </div>
+
+    <div class="field">
+      <%= form.label :contact_no %>
+      <%= form.text_field :contact_no, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
+    </div>
+
+    <div>
+      <%= form.label :salesperson %>
+      <%= form.select :salesperson, ["Salesperson - 1", "Salesperson - 2", "Salesperson - 3"], required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+    
+    <div class="actions">
+      <%= link_to 'Back', admin_buyers_path, class: 'border px-4 py-2 mt-2 inline-block rounded' %>
+      <%= form.submit "Update", class: "py-2 px-4 bg-green-800 rounded text-white" %>
+    </div>
+  <% end %>
+</div>
