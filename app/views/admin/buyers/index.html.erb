@@ -1,0 +1,65 @@
+<h1 class="text-2xl text-green-800 text-center uppercase font-medium mt-12">Buyers Database</h1>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-12">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    No.
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Lastname
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Firstname
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Contact No.
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Ref Code
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Salesperson
+                </th>
+                 <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @admin_sales.each do |sale| %>
+                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <%= sale.id %>
+                    </th>
+                    <td class="px-6 py-4">
+                        <%= sale.lastname %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= sale.firstname %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= sale.contact_no %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= sale.email %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= sale.ref_code %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= sale.salesperson %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="#" class="font-medium text-green-800 dark:text-green-500 hover:underline">Update</a>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+

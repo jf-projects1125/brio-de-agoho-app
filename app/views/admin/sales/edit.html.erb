@@ -1,0 +1,52 @@
+<h1 class="text-2xl text-green-800 text-center uppercase font-medium mt-8 mb-4">Update Sale</h1>
+
+<div class="w-3/4 flex justify-center md:text-end sm:text-center mx-auto ml-8">
+  <%= form_with model: [:admin, @admin_sale], class: 'space-y-3' do |form| %>
+      <% if form.object.errors.any? %>
+          <% form.object.errors.full_messages.each do |message| %>
+              <div>
+                  <%= message %>
+              </div>
+          <% end %>
+      <% end %>
+    <div class="field">
+      <%= form.label :transaction_date %>
+      <%= form.date_field :transaction_date, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :payment_method %>
+      <%= form.text_field :payment_method, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent'  %>
+    </div>
+
+    <div class="field">
+      <%= form.label :purchase_share %>
+      <%= form.text_field :purchase_share, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent'  %>
+    </div>
+
+    <div class="field">
+      <%= form.label :amount %>
+      <%= form.text_field :amount, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :total_amount %>
+      <%= form.text_field :total_amount, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :payout %>
+      <%= form.text_field :payout, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
+    </div>
+
+    <div>
+      <%= form.label :status %>
+      <%= form.select :status, ["Pending", "Paid"], required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+    
+    <div class="actions">
+      <%= link_to 'Back', admin_sales_path, class: 'border px-4 py-2 mt-2 inline-block rounded' %>
+      <%= form.submit "Update", class: "py-2 px-4 bg-green-800 rounded text-white" %>
+    </div>
+  <% end %>
+</div>

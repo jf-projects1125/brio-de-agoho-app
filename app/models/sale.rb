@@ -3,7 +3,7 @@ class Sale < ApplicationRecord
 
   validates_presence_of :affiliate, presence: true, :message => "Refcode must exist!"
 
-  def client_name
+  def buyer_name
     return "#{self.firstname} #{self.lastname}"
   end
 
