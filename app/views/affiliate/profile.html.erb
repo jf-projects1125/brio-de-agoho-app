@@ -1,20 +1,39 @@
-<%= image_tag @affiliate.avatar.present? ? @affiliate.avatar : 'user.png', alt: 'src', class: "w-36 h-36 inline-block rounded-full" %>
-<h1 class="inline-block text-3xl"><%= @affiliate.fullname %></h1>
+<div class="px-5">
+    <%= image_tag @affiliate.avatar.present? ? @affiliate.avatar : 'user.png', alt: 'src', class: "w-36 h-36 inline-block rounded-full" %>
+    <h1 class="inline-block text-3xl"><%= @affiliate.fullname %></h1>
 
-<div>
-    <p>Referral Code: <span><%= @affiliate.id.to_s.rjust(4, '0') %></span></p>
-    <p>Birthday: <span><%= @affiliate.birthday.present? ? @affiliate.birthday.strftime("%B %d, %Y") : '' %></span></p>
-    <p>Age: <span><%= @age %></span></p>
-    <p>Address: <span><%= @affiliate.address %></span></p>
-    <p>Contact No.: <span><%= @affiliate.mobile %></span></p>
-    <p>Email: <span><%= @affiliate.email %></span></p>
-    <p>Facebook: <span><%= @affiliate.fb %></span></p>
-    <p>Instagram: <span><%= @affiliate.ig %></span></p>
-    <p>Tiktok: <span><%= @affiliate.tiktok %></span></p>
-    <p>Youtube: <span><%= @affiliate.youtube %></span></p>
-    <p>Others: <span><%= @affiliate.others %></span></p>
+    <div class="flex mx-auto w-2/3 justify-center gap-4 text-lg">
+        <div class="flex-auto text-end">
+            <p>Referral Code:</p>
+            <p>Birthday:</p>
+            <p>Age:</p>
+            <p>Address:</p>
+            <p>Contact No.:</p>
+            <p>Email:</p>
+            <p>Facebook:</p>
+            <p>Instagram:</p>
+            <p>Tiktok:</p>
+            <p>Youtube:</p>
+            <p>Others:</p>
+        </div>
+        <div class="flex-2">
+            <p class="border-b"><%= @affiliate.id.to_s.rjust(4, '0') %></p>
+            <p class="border-b"><%= @affiliate.birthday.present? ? @affiliate.birthday.strftime("%B %d, %Y") : '' %></p>
+            <p class="border-b"><%= @age %></p>
+            <p class="border-b"><%= @affiliate.address %></p>
+            <p class="border-b"><%= @affiliate.mobile %></p>
+            <p class="border-b"><%= @affiliate.email %></p>
+            <p class="border-b"><%= @affiliate.fb %></p>
+            <p class="border-b"><%= @affiliate.ig %></p>
+            <p class="border-b"><%= @affiliate.tiktok %></p>
+            <p class="border-b"><%= @affiliate.youtube %></p>
+            <p class="border-b"><%= @affiliate.others %></p>
+        </div>
+    </div>
+
+    <div class="text-end">
+        <%= link_to affiliate_profile_edit_path, class: 'inline-block bg-green-700 text-white px-6 py-2 rounded-full' do %>
+            Edit
+        <% end %>
+    </div>
 </div>
-
-<%= link_to affiliate_profile_edit_path, class: 'link' do %>
-    Edit
-<% end %>

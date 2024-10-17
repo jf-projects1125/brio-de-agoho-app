@@ -3,5 +3,7 @@ class AdminController < ApplicationController
   before_action :authenticate_admin!
 
   def index
+    @pending = Sale.pending.count
+    @paid = Sale.paid.count
   end
 end
