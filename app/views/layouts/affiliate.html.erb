@@ -30,8 +30,8 @@
                         Sales
                     <% end %>
                 </li>
-                <li class="py-4 border-b">
-                    <%= link_to affiliate_path, class: 'link' do %>
+                <li class="py-4 border-b <%= request.fullpath.include?('account') ? 'bg-white text-green-800' : '' %>">
+                    <%= link_to affiliate_account_path, class: 'link' do %>
                         My Account
                     <% end %>
                 </li>

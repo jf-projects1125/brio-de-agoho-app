@@ -22,10 +22,6 @@ class AffiliateController < ApplicationController
   def edit
   end
 
-  def sale
-    @sales = current_affiliate.sales
-  end
-
   def update
     respond_to do |format|
 
@@ -37,6 +33,13 @@ class AffiliateController < ApplicationController
         format.json { render json: @affiliate.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def sale
+    @sales = current_affiliate.sales
+  end
+
+  def account
   end
 
   private
