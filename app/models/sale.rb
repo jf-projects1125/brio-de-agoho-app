@@ -3,6 +3,9 @@ class Sale < ApplicationRecord
 
   validates_presence_of :affiliate, presence: true, :message => "Refcode must exist!"
 
+  scope :pending, -> { where(status: "Pending") }
+  scope :paid, -> { where(status: "Paid") }
+
   def buyer_name
     return "#{self.firstname} #{self.lastname}"
   end

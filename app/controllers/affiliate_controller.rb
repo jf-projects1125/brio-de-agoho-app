@@ -12,13 +12,17 @@ class AffiliateController < ApplicationController
       now = Time.now.utc.to_date
       @age = now.year - @affiliate.birthday.to_date.year
 
-      if (now.month <= @affiliate.birthday.to_date.month)
+      if (now.month < @affiliate.birthday.to_date.month)
         @age = @age - 1
       end
     end
   end
 
   def edit
+  end
+
+  def sale
+    @sales = current_affiliate.sales
   end
 
   def update

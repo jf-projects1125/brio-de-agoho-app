@@ -25,8 +25,8 @@
                         Profile
                     <% end %>
                 </li>
-                <li class="py-4 border-b">
-                    <%= link_to affiliate_path, class: 'link' do %>
+                <li class="py-4 border-b <%= request.fullpath.include?('sale') ? 'bg-white text-green-800' : '' %>">
+                    <%= link_to affiliate_sale_path, class: 'link' do %>
                         Sales
                     <% end %>
                 </li>
