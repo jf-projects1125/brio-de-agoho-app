@@ -11,4 +11,8 @@ class Affiliate < ApplicationRecord
   has_one_attached :attached_id
 
   has_many :sales
+
+  def ref_code
+    return self.id.to_s.rjust(4, '0')
+  end
 end

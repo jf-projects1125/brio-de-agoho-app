@@ -3,8 +3,9 @@ class AffiliateController < ApplicationController
   before_action :authenticate_affiliate!
   before_action :set_affiliate, only: %i[index profile edit update]
 
-
   def index
+    @pending = current_affiliate.sales.pending.count
+    @paid = current_affiliate.sales.paid.count
   end
 
   def profile
