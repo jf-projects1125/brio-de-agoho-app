@@ -2,33 +2,39 @@
     <%= image_tag @affiliate.avatar.present? ? @affiliate.avatar : 'user.png', alt: 'src', class: "w-36 h-36 inline-block rounded-full" %>
     <h1 class="inline-block text-3xl"><%= @affiliate.fullname %></h1>
 
-    <div class="flex mx-auto w-2/3 justify-center gap-4 text-lg">
-        <div class="flex-auto text-end">
-            <p>Referral Code:</p>
-            <p>Birthday:</p>
-            <p>Age:</p>
-            <p>Address:</p>
-            <p>Contact No.:</p>
-            <p>Email:</p>
-            <p>Facebook:</p>
-            <p>Instagram:</p>
-            <p>Tiktok:</p>
-            <p>Youtube:</p>
-            <p>Others:</p>
-        </div>
-        <div class="flex-2">
-            <p class="border-b"><%= @affiliate.id.to_s.rjust(4, '0') %></p>
-            <p class="border-b"><%= @affiliate.birthday.present? ? @affiliate.birthday.strftime("%B %d, %Y") : '' %></p>
-            <p class="border-b"><%= @age %></p>
-            <p class="border-b"><%= @affiliate.address %></p>
-            <p class="border-b"><%= @affiliate.mobile %></p>
-            <p class="border-b"><%= @affiliate.email %></p>
-            <p class="border-b"><%= @affiliate.fb %></p>
-            <p class="border-b"><%= @affiliate.ig %></p>
-            <p class="border-b"><%= @affiliate.tiktok %></p>
-            <p class="border-b"><%= @affiliate.youtube %></p>
-            <p class="border-b"><%= @affiliate.others %></p>
-        </div>
+    <div class="grid grid-cols-4 w-8/12 ml-20 gap-2">
+        <p class="text-end">Referral Code:</p>
+        <p class="border-b col-span-3"><%= @affiliate.id.to_s.rjust(4, '0') %></p>
+        
+        <p class="text-end">Birthday:</p>
+        <p class="border-b col-span-3"><%= @affiliate.birthday.present? ? @affiliate.birthday.strftime("%B %d, %Y") : '' %></p>
+
+        <p class="text-end">Age:</p>
+        <p class="border-b col-span-3"><%= @age %></p>
+
+        <p class="text-end">Address:</p>
+        <p class="border-b col-span-3"><%= @affiliate.address %></p>
+
+        <p class="text-end">Contact No:</p>
+        <p class="border-b col-span-3"><%= @affiliate.mobile %></p>
+
+        <p class="text-end">Email:</p>
+        <p class="border-b col-span-3"><%= @affiliate.email %></p>
+
+        <p class="text-end">Facebook:</p>
+        <p class="border-b col-span-3"><%= @affiliate.fb %></p>
+
+        <p class="text-end">Instagram:</p>
+        <p class="border-b col-span-3"><%= @affiliate.ig %></p>
+
+        <p class="text-end">Tiktok:</p>
+        <p class="border-b col-span-3"><%= @affiliate.tiktok %></p>
+
+        <p class="text-end">Youtube:</p>
+        <p class="border-b col-span-3"><%= @affiliate.youtube %></p>
+
+        <p class="text-end">Others:</p>
+        <p class="border-b col-span-3"><%= @affiliate.others %></p>
     </div>
 
     <div class="text-end">
