@@ -30,13 +30,13 @@
                         Sales
                     <% end %>
                 </li>
-                <li class="py-4 border-b <%= request.fullpath.include?('account') ? 'bg-white text-green-800' : '' %>">
+                <li class="py-4 border-b <%= request.fullpath.split('/')[-1] == 'account' ? 'bg-white text-green-800' : '' %>">
                     <%= link_to affiliate_account_path, class: 'link' do %>
                         My Account
                     <% end %>
                 </li>
-                <li class="py-4 border-b">
-                    <%= link_to affiliate_path, class: 'link' do %>
+                <li class="py-4 border-b <%= request.fullpath.include?('account_setting') ? 'bg-white text-green-800' : '' %>">
+                    <%= link_to affiliate_account_setting_path, class: 'link' do %>
                         Account Setting
                     <% end %>
                 </li>

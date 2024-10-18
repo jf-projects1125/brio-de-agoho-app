@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   patch "affiliate/update" => "affiliate#update"
   get "affiliate/sale" => "affiliate#sale"
   get "affiliate/account" => "affiliate#account"
+  get "affiliate/account_setting" => "affiliate#account_setting"
+  get "affiliate/account_setting/edit/" => "affiliate#edit_account_setting"
+  patch "affiliate/account_setting/update" => "affiliate#update_account_setting"
 
   get "sales/invest/form/:ref_code" => "sales#new", as: :sales_form
   post "sales/invest/form/create" => "sales#create"

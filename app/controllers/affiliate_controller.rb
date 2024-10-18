@@ -1,7 +1,7 @@
 class AffiliateController < ApplicationController
   layout 'affiliate'
   before_action :authenticate_affiliate!
-  before_action :set_affiliate, only: %i[index profile edit update]
+  before_action :set_affiliate, only: %i[index profile edit update account_setting edit_account_setting update_account_setting]
 
   def index
     @pending = current_affiliate.sales.pending.count
@@ -42,12 +42,32 @@ class AffiliateController < ApplicationController
   def account
   end
 
+  def account_setting
+  end
+
+  def edit_account_setting
+  end
+
+  def update_account_setting
+    respond_to do |format|
+
+      if @affiliate.update(affiliate_params)
+        format.html { redirect_to affiliate_account_setting_path, notice: "Account Settings was successfully updated." }
+        format.json { render :show, status: :ok, location: @affiliate }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @affiliate.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   private
     def set_affiliate
       @affiliate = Affiliate.find(current_affiliate.id)
     end
 
     def affiliate_params
-      params.require(:affiliate).permit(:birthday, :address, :mobile, :password, :password_confirmation, :fb, :ig, :tiktok, :youtube, :others, :type_of_id, :avatar, :attached_id)
+      params.require(:affiliate).permit(:birthday, :address, :mobile, :password, :password_confirmation, :fb, :ig, :tiktok, :youtube, :others, :type_of_id, :avatar, :attached_id, :bank, :account_name, :account_no)
     end
 end
