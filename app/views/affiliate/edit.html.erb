@@ -1,8 +1,8 @@
 <%= form_with(model: @affiliate, url: "/affiliate/update") do |form| %>
-  <div>
-    <%= image_tag @affiliate.avatar.present? ? @affiliate.avatar : 'user.png', alt: 'src', class: "w-36 h-36 inline-block rounded-full" %>
+  <div class="relative">
+    <%= image_tag @affiliate.avatar.present? ? @affiliate.avatar : 'user.png', alt: 'src', class: "w-36 h-36 inline-block rounded-full thumbnail" %>
     <h1 class="inline-block text-3xl"><%= @affiliate.fullname %></h1>
-    <%= form.file_field :avatar %>
+    <%= form.file_field :avatar, class: 'btn-thumbnail absolute bottom-0 left-32 file:border-0 file:rounded-full file:bg-green-700 file:px-2 file:text-white' %>
   </div>
   <% if @affiliate.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
@@ -16,71 +16,60 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :birthday %>
-    <%= form.date_field :birthday, required: true,  class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :email %>
-    <%= form.text_field :email, readonly: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :address %>
-    <%= form.text_field :address, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :mobile, "Contact No." %>
-    <%= form.text_field :mobile, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <% if @affiliate.attached_id.present? %>
+  <div class="grid grid-cols-4 w-8/12 ml-28 gap-2 items-center mt-10">
+    <%= form.label :birthday, class: 'text-end' %>
+    <%= form.date_field :birthday, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <%= form.label :email, class: "text-end" %>
+    <%= form.text_field :email, readonly: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <%= form.label :address, class: "text-end" %>
+    <%= form.text_field :address, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <%= form.label :mobile, "Contact No.", class: "text-end" %>
+    <%= form.text_field :mobile, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <%= form.label :type_of_id, "Identify Verification", class: "text-end" %>
+    <%= form.select :type_of_id, ["Drivers License", "UMID", "Philhealth", "Philippine passport", "NBI", "Postal ID", "TIN ID", "SSS ID"], required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+    <%= form.file_field :attached_id, class: "file:border-0 file:rounded-full file:bg-green-700 file:px-2 file:text-white" %>
+     <% if @affiliate.attached_id.present? %>
       <%= image_tag @affiliate.attached_id, alt: 'src', class: "w-36 h-36" %>
     <% end %>
-    <%= form.label :type_of_id, "Identify Verification" %>
-    <%= form.select :type_of_id, ["Drivers License", "UMID", "Philhealth", "Philippine passport", "NBI", "Posta ID", "TIN ID", "SSS ID"], required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    <%= form.file_field :attached_id %>
-  </div>
 
-  <div class="my-5">
-    <%= form.label :password %>
-    <%= form.password_field :password, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :fb, "Facebook" %>
-    <%= form.text_field :fb, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :ig, "Instagram" %>
-    <%= form.text_field :ig, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :tiktok %>
-    <%= form.text_field :tiktok, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :youtube %>
-    <%= form.text_field :youtube, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :others %>
-    <%= form.text_field :others, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit "Update Details", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.label :password, class: "text-end" %>
+    <%= form.password_field :password, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <%= form.label :password_confirmation, class: "text-end" %>
+    <%= form.password_field :password_confirmation, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <%= form.label :fb, "Facebook", class: "text-end" %>
+    <%= form.text_field :fb, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <%= form.label :ig, "Instagram", class: "text-end" %>
+    <%= form.text_field :ig, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <%= form.label :youtube, class: "text-end" %>
+    <%= form.text_field :youtube, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <%= form.label :others, class: "text-end" %>
+    <%= form.text_field :others, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <div class="inline col-span-full mt-5 text-end">
+      <%= form.submit "Update Details", class: "rounded-full py-3 px-5 bg-green-700 text-white inline-block font-medium cursor-pointer" %>
+    </div>
   </div>
 <% end %>
+
+<script>
+  const btn = document.querySelector('.btn-thumbnail')
+
+  const loadFile = function(event) {
+    const output = document.querySelector('.thumbnail');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+
+  btn.addEventListener('change', loadFile)
+</script>

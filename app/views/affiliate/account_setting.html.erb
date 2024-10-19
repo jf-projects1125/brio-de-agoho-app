@@ -1,6 +1,17 @@
-<h1>Account Setting</h1>
-<p>Bank: <%= @affiliate.bank%></p>
-<p>Account Name: <%= @affiliate.account_name%></p>
-<p>Account No: <%= @affiliate.account_no%></p>
+<div class="mt-20 px-10 mx-auto w-8/12">
+    <h1 class="text-2xl mb-20">Account Setting</h1>
+    <div class="grid grid-cols-4 gap-2 text-lg">
+        <p class="text-end">Bank: </p>
+        <p class="border-b col-span-3"><%= @affiliate.bank %></p>
 
-<%= link_to 'Edit', affiliate_account_setting_edit_path, class: 'link' %>
+        <p class="text-end">Account Name: </p>
+        <p class="border-b col-span-3"><%= @affiliate.account_name %></p>
+
+        <p class="text-end">Account No.: </p>
+        <p class="border-b col-span-3"><%= @affiliate.account_no %></p>
+       
+    </div>
+
+
+    <%= link_to 'Edit', affiliate_account_setting_edit_path, class: 'link' %>
+</div>

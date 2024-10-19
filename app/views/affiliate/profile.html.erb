@@ -2,7 +2,7 @@
     <%= image_tag @affiliate.avatar.present? ? @affiliate.avatar : 'user.png', alt: 'src', class: "w-36 h-36 inline-block rounded-full" %>
     <h1 class="inline-block text-3xl"><%= @affiliate.fullname %></h1>
 
-    <div class="grid grid-cols-4 w-8/12 ml-20 gap-2">
+    <div class="grid grid-cols-4 w-8/12 ml-28 gap-2">
         <p class="text-end">Referral Code:</p>
         <p class="border-b col-span-3"><%= @affiliate.id.to_s.rjust(4, '0') %></p>
         
