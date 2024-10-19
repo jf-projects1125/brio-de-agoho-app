@@ -11,22 +11,20 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :bank %>
-    <%= form.text_field :bank, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+  <h1 class="text-2xl mb-20 w-8/12 mx-auto mt-10">Account Setting</h1>
 
-  <div class="my-5">
-    <%= form.label :account_name %>
-    <%= form.text_field :account_name, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :account_no %>
-    <%= form.text_field :account_no, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit "Update Details", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="grid grid-cols-4 w-8/12 ml-28 gap-2 items-center mt-10">
+    <%= form.label :bank, class: 'text-end' %>
+    <%= form.text_field :bank, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <%= form.label :account_name, class: 'text-end' %>
+    <%= form.text_field :account_name, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <%= form.label :account_no, class: 'text-end' %>
+    <%= form.text_field :account_no, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+  
+    <div class="inline col-span-full mt-5 text-end">
+      <%= form.submit "Update Details", class: "rounded-full py-3 px-5 bg-green-700 text-white inline-block font-medium cursor-pointer" %>
+    </div>
   </div>
 <% end %>
