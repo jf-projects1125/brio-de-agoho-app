@@ -1,4 +1,6 @@
 class SalesController < ApplicationController
+  layout "sales"
+
   def new
     @ref_code = params[:ref_code]
     @sale = Sale.new

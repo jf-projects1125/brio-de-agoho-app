@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+
 /*
 
 @layer components {
@@ -11,3 +14,26 @@
 }
 
 */
+
+@layer base{
+
+  @font-face {
+    font-family: 'Optima';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('OPTIMA.TTF') format('ttf');
+  }
+
+  @font-face {
+    font-family: 'Optima Bold';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('OPTIMA_B.TTF') format('ttf');
+  }
+
+  html {
+    font-family: Montserrat, system-ui sans-serif;
+  }
+}

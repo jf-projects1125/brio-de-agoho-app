@@ -1,41 +1,41 @@
-<h1>Be a Co-owner</h1>
-<p>To be part of something amazing!</p>
+<section class="bg-white/60 px-4 py-4 rounded-lg">
+    <div class="text-center">
+        <%= image_tag 'brio-logo-green.png', alt: 'logo', class: 'w-36 mx-auto' %>
+        <h1 class="font-optima font-bold uppercase text-3xl text-green-900">Be a Co-owner</h1>
+        <p class="uppercase font-medium mb-5">To be part of something amazing!</p>
 
-<p>Fill out the form to start journey with us</p>
+        <p class="text-lg text-green-950">Fill out the form to start journey with us</p>
+    </div>
 
-<%= form_with(model: @sale, url: "/sales/invest/form/create") do |form| %>
-    <% if form.object.errors.any? %>
-        <% form.object.errors.full_messages.each do |message| %>
-            <div>
-                <%= message %>
-            </div>
+    <%= form_with(model: @sale, url: "/sales/invest/form/create") do |form| %>
+        <% if form.object.errors.any? %>
+            <% form.object.errors.full_messages.each do |message| %>
+                <div>
+                    <%= message %>
+                </div>
+            <% end %>
         <% end %>
+
+        <div class="grid grid-cols-4 w-8/12 ml-20 gap-2 items-center mt-5">
+            <%= form.label :firstname, class: 'text-end' %>
+            <%= form.text_field :firstname, required: true, required: true,  class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+            <%= form.text_field :status, value: "Pending", class: "hidden" %>
+
+            <%= form.label :lastname, class: 'text-end' %>
+            <%= form.text_field :lastname, required: true, required: true,  class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+        
+            <%= form.label :contact_no, class: 'text-end' %>
+            <%= form.text_field :contact_no, required: true, required: true,  class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+        
+            <%= form.label :email, class: 'text-end' %>
+            <%= form.email_field :email, required: true, required: true,  class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+        
+            <%= form.label :affiliate_id, "Ref Code", class: 'text-end' %>
+            <%= form.text_field :affiliate_id, value: @ref_code, required: true, class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+        </div>
+
+        <div class="text-center mt-5">
+            <%= form.submit "Send", class: "px-10 py-2 bg-green-800 text-white rounded-full" %>
+        </div>
     <% end %>
-    <div class="my-5">
-        <%= form.label :firstname %>
-        <%= form.text_field :firstname, required: true,  class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-        <%= form.text_field :status, value: "Pending", class: "hidden" %>
-    </div>
-
-    <div class="my-5">
-        <%= form.label :lastname %>
-        <%= form.text_field :lastname, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-        <%= form.label :contact_no %>
-        <%= form.text_field :contact_no, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-        <%= form.label :email %>
-        <%= form.email_field :email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="my-5">
-        <%= form.label :affiliate_id, "Ref Code" %>
-        <%= form.text_field :affiliate_id, value: @ref_code, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <%= form.submit "Send" %>
-<% end %>
+</section>

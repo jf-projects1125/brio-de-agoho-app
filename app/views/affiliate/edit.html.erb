@@ -30,11 +30,13 @@
     <%= form.text_field :mobile, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
   
     <%= form.label :type_of_id, "Identify Verification", class: "text-end" %>
-    <%= form.select :type_of_id, ["Drivers License", "UMID", "Philhealth", "Philippine passport", "NBI", "Postal ID", "TIN ID", "SSS ID"], required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
-    <%= form.file_field :attached_id, class: "file:border-0 file:rounded-full file:bg-green-700 file:px-2 file:text-white" %>
-     <% if @affiliate.attached_id.present? %>
-      <%= image_tag @affiliate.attached_id, alt: 'src', class: "w-36 h-36" %>
-    <% end %>
+    <div class="col-span-3 grid grid-cols-3 items-center gap-1">
+      <%= form.select :type_of_id, ["Drivers License", "UMID", "Philhealth", "Philippine passport", "NBI", "Postal ID", "TIN ID", "SSS ID"], required: true, :class => "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent" %>
+      <%= form.file_field :attached_id, class: "file:border-0 file:rounded-full file:bg-green-700 file:px-2 file:text-white" %>
+      <% if @affiliate.attached_id.present? %>
+        <%= image_tag @affiliate.attached_id, alt: 'src', class: "w-36 h-36" %>
+      <% end %>
+    </div>
 
     <%= form.label :password, class: "text-end" %>
     <%= form.password_field :password, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
