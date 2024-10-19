@@ -15,22 +15,22 @@
     <div class="flex min-h-screen">
         <nav class="sidebar w-64 bg-green-800 text-white text-center uppercase font-medium">
             <ul>
-                <li class="py-4 border-b text-xl text-orange-400">
+                <li class="py-4 border-b text-xl text-orange-400 <%= request.fullpath.length == 6 ? 'bg-white' : '' %>">
                     <%= link_to admin_path, class: 'link' do %>
                         Admin Dashboard
                     <% end %>
                 </li>
-                <li class="py-4 border-b">
+                <li class="py-4 border-b <%= request.fullpath.include?('sales') ? 'bg-white text-green-800' : '' %>">
                     <%= link_to admin_sales_path, class: 'link' do %>
                         Sales Summary & Payment Transactions
                     <% end %>
                 </li>
-                <li class="py-4 border-b">
+                <li class="py-4 border-b <%= request.fullpath.include?('affiliates') ? 'bg-white text-green-800' : '' %>">
                     <%= link_to admin_affiliates_path, class: 'link' do %>
                         Affiliate Database
                     <% end %>
                 </li>
-                <li class="py-4 border-b">
+                <li class="py-4 border-b <%= request.fullpath.include?('buyers') ? 'bg-white text-green-800' : '' %>">
                     <%= link_to admin_buyers_path, class: 'link' do %>
                         Buyers Database
                     <% end %>

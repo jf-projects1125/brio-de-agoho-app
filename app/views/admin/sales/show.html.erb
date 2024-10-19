@@ -1,15 +1,34 @@
-<div>
-    <p>Sales ID: <%= @admin_sale.id %></p>
-    <p>Client Name: <%= @admin_sale.affiliate.fullname %></p>
-    <p>Referral Code: <%= @admin_sale.ref_code %></p>
-    <p>Buyer's Name: <%= @admin_sale.buyer_name %></p>
-    <p>Transaction Date: <%= @admin_sale.transaction_date.present? ? @admin_sale.transaction_date.strftime("%B %d, %Y") : '' %></p>
-    <p>Payment Method: <%= @admin_sale.payment_method %></p>
-    <p>Purchase Share: <%= @admin_sale.purchase_share %></p>
-    <p>Amount: <%= @admin_sale.amount %></p>
-    <p>Total Amount: <%= @admin_sale.total_amount %></p>
-    <p>Payout: <%= @admin_sale.payout %></p>
-    <p class="capitalize">Status: <%= @admin_sale.status %></p>
+<div class="grid grid-cols-4 w-8/12 ml-28 gap-2 mt-10">
+    <p class="text-end">Sales ID:</p>
+    <p class="border-b col-span-3"><%= @admin_sale.id %></p>
+    
+    <p class="text-end">Client Name:</p>
+    <p class="border-b col-span-3"><%= @admin_sale.affiliate.fullname %></p>
 
-    <%= link_to 'Back', admin_sales_path, class: 'border px-4 py-2 mt-2 inline-block rounded' %>
+    <p class="text-end">Referral Code:</p>
+    <p class="border-b col-span-3"><%= @admin_sale.ref_code %></p>
+
+    <p class="text-end">Buyer's Name:</p>
+    <p class="border-b col-span-3"><%= @admin_sale.buyer_name %></p>
+
+    <p class="text-end">Transaction Date:</p>
+    <p class="border-b col-span-3"><%= @admin_sale.transaction_date.present? ? @admin_sale.transaction_date.strftime("%B %d, %Y") : '' %></p>
+
+    <p class="text-end">Payment Method:</p>
+    <p class="border-b col-span-3"><%= @admin_sale.payment_method %></p>
+
+    <p class="text-end">Purchase Share:</p>
+    <p class="border-b col-span-3"><%= @admin_sale.purchase_share %></p>
+
+    <p class="text-end">Amount:</p>
+    <p class="border-b col-span-3"><%= @admin_sale.amount %></p>
+
+    <p class="text-end">Total Amount:</p>
+    <p class="border-b col-span-3"><%= @admin_sale.total_amount %></p>
+
+    <p class="text-end">Payout:</p>
+    <p class="border-b col-span-3"><%= @admin_sale.payout %></p>
+
+    <p class="text-end capitalize">Status:</p>
+    <p class="border-b col-span-3"><%= @admin_sale.status %></p>
 </div>
