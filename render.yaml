@@ -1,12 +1,12 @@
 databases:
-  - name: brio-de-agoho-app
-    databaseName: brio-de-agoho-app
+  - name: brio_de_agoho
+    databaseName: brio_de_agoho
     user: brio-de-agoho-app
     plan: free
 
 services:
   - type: web
-    name: brio-de-agoho-app
+    name: brio_de_agoho
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
