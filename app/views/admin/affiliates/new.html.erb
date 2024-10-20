@@ -1,46 +1,36 @@
 <h1 class="text-2xl text-green-800 text-center uppercase font-medium mt-8 mb-4">Add New Affiliate</h1>
 
-<div class="w-3/4 flex justify-center md:text-end sm:text-center mx-auto ml-8">
+<div>
   <%= form_with model: [:admin, @admin_affiliate], class: 'space-y-3' do |form| %>
-      <% if form.object.errors.any? %>
-          <% form.object.errors.full_messages.each do |message| %>
-              <div>
-                  <%= message %>
-              </div>
-          <% end %>
-      <% end %>
-    <div class="field">
-      <%= form.label :fullname %>
-      <%= form.text_field :fullname, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
+    <% if form.object.errors.any? %>
+        <% form.object.errors.full_messages.each do |message| %>
+            <div class="text-center">
+                <%= message %>
+            </div>
+        <% end %>
+    <% end %>
+
+    <div class="grid grid-cols-4 w-8/12 ml-28 gap-2 items-center mt-10 auto-cols-min">
+      <%= form.label :fullname, class: 'text-end' %>
+      <%= form.text_field :fullname, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+
+      <%= form.label :address, class: 'text-end' %>
+      <%= form.text_field :address, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+    
+      <%= form.label :mobile, class: 'text-end' %>
+      <%= form.text_field :mobile, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+    
+      <%= form.label :email, class: 'text-end' %>
+      <%= form.email_field :email, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+
+      <%= form.label :password, class: 'text-end' %>
+      <%= form.password_field :password, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+
+      <%= form.label :password_confirmation, class: 'text-end' %>
+      <%= form.password_field :password_confirmation, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
     </div>
 
-    <div class="field">
-      <%= form.label :address %>
-      <%= form.text_field :address, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent'  %>
-    </div>
-
-    <div class="field">
-      <%= form.label :mobile, "Contact No" %>
-      <%= form.text_field :mobile, class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent'  %>
-    </div>
-
-    <div class="field">
-      <%= form.label :email %>
-      <%= form.email_field :email, autofocus: true, autocomplete: "email", class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
-    </div>
-
-    <div class="field">
-      <%= form.label :password %>
-  
-      <%= form.password_field :password, autocomplete: "new-password", class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
-    </div>
-
-    <div class="field">
-      <%= form.label :password_confirmation, "Password Confirm " %>
-      <%= form.password_field :password_confirmation, autocomplete: "new-password", class: 'border-transparent border-b-black focus:border-transparent focus:border-b-black focus:ring-transparent' %>
-    </div>
-
-    <div class="actions">
+    <div class="actions text-center">
       <%= form.submit "Submit", class: "py-2 px-4 bg-green-800 rounded text-white" %>
     </div>
   <% end %>

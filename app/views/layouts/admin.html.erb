@@ -13,7 +13,7 @@
 
   <body>
     <div class="flex min-h-screen">
-        <nav class="sidebar w-64 bg-green-800 text-white text-center uppercase font-medium">
+        <nav class="sidebar w-64 min-w-64 bg-green-800 text-white text-center uppercase font-medium">
             <ul>
                 <li class="py-4 border-b text-xl text-orange-400 <%= request.fullpath.length == 6 ? 'bg-white' : '' %>">
                     <%= link_to admin_path, class: 'link' do %>
