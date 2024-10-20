@@ -1,7 +1,7 @@
 databases:
   - name: brio_de_agoho
     databaseName: brio_de_agoho
-    user: brio-de-agoho-app
+    user: brio_de_agoho
     plan: free
 
 services:
