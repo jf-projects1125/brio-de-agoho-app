@@ -38,12 +38,22 @@
       <% end %>
     </div>
 
-    <%= form.label :password, class: "text-end" %>
-    <%= form.password_field :password, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
-  
-    <%= form.label :password_confirmation, class: "text-end" %>
-    <%= form.password_field :password_confirmation, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
-  
+    <div class="text-end">
+      <%= form.label :password, class: "text-end" %>
+    </div>
+    <div class="col-span-3">
+      <%= form.password_field :password, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent w-full" %>
+    </div>
+
+    <div class="text-end">
+      <%= form.label :password_confirmation, class: "text-end" %>
+    </div>
+
+    <div class="col-span-3">
+      <%= form.password_field :password_confirmation, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent w-full" %>
+    </div>
+
+
     <%= form.label :fb, "Facebook", class: "text-end" %>
     <%= form.text_field :fb, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
   

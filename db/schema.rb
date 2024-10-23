@@ -11,13 +11,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_10_18_022446) do
-  create_table "account_settings", force: :cascade do |t|
-    t.string "bank"
-    t.string "account_name"
-    t.string "account_no"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -90,7 +85,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_18_022446) do
     t.string "firstname"
     t.string "contact_no"
     t.string "email"
-    t.integer "affiliate_id", null: false
+    t.bigint "affiliate_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"

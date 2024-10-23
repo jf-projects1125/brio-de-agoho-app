@@ -25,9 +25,13 @@
 
       <%= form.label :password, class: 'text-end' %>
       <%= form.password_field :password, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
-
-      <%= form.label :password_confirmation, class: 'text-end' %>
-      <%= form.password_field :password_confirmation, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+      
+      <div class="text-end">
+        <%= form.label :password_confirmation, class: 'text-end' %>
+      </div>
+      <div class="col-span-3">
+        <%= form.password_field :password_confirmation, required: true,  class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent w-full" %>
+      </div>
     </div>
 
     <div class="actions text-center">
