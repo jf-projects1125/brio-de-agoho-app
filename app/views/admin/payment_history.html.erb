@@ -1,0 +1,73 @@
+<h1 class="text-2xl text-green-800 text-center uppercase font-medium mt-12 uppercase">Payment History</h1>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-12">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 overflow-x-scroll max-w-full">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Ref Code
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Sellers Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Trans. Date
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Trans. No.
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Transaction Acc.
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Trans. Method
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Trans. Amount
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Payout Date
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Payout Amount
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @admin_sales.each do |sale| %>
+                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                    <td class="px-6 py-4">
+                        <%= sale.ref_code %>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <%= link_to admin_sale_path(sale), class: 'link' do %>
+                            <%= sale.affiliate.fullname %>
+                        <% end %>
+                    </th>
+                    <td class="px-6 py-4">
+                        <%= sale.transaction_date.present? ? sale.transaction_date.strftime("%B %d, %Y") : '' %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= sale.id %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= sale.affiliate.account_no %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= sale.payment_method %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= sale.amount %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= sale.updated_at.present? ? sale.updated_at.strftime("%B %d, %Y") : '' %>
+                    </td>
+                    <td class="px-6 py-4 capitalize">
+                        <%= sale.amount %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+

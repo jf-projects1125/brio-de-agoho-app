@@ -35,8 +35,8 @@
                         Buyers Database
                     <% end %>
                 </li>
-                <li class="py-4 border-b">
-                    <%= link_to admin_path, class: 'link' do %>
+                <li class="py-4 border-b <%= request.fullpath.include?('payment_history') ? 'bg-white text-green-800' : '' %>">
+                    <%= link_to admin_payment_history_path, class: 'link' do %>
                         Payment History
                     <% end %>
                 </li>
@@ -48,8 +48,6 @@
             </ul>
         </nav>
         <main class="flex-1 m-8 w-full overflow-x-scroll">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
             <%= yield %>
         </main>
     </div>

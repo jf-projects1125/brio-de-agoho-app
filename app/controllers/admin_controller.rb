@@ -6,4 +6,8 @@ class AdminController < ApplicationController
     @pending = Sale.pending.count
     @paid = Sale.paid.count
   end
+
+  def payment_history
+    @admin_sales = Sale.all
+  end
 end

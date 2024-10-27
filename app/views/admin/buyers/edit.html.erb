@@ -24,7 +24,12 @@
       <%= form.email_field :email, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
 
       <%= form.label :salesperson, class: 'text-end' %>
-      <%= form.select :salesperson, ["Salesperson - 1", "Salesperson - 2", "Salesperson - 3"], required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+      
+      <div class="col-span-3 w-full">
+        <%= form.select(:salesperson, ["Salesperson - 1", "Salesperson - 2", "Salesperson - 3"],{required: true}, {:class => "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent w-full" }) %>
+        
+      </div>
+    
     </div>
     
     <div class="actions text-center">

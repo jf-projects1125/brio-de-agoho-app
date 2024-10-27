@@ -1,5 +1,5 @@
 <%= form_with(model: @affiliate, url: "/affiliate/update") do |form| %>
-  <div class="relative">
+  <div class="relative" data-controller="profile">
     <%= image_tag @affiliate.avatar.present? ? @affiliate.avatar : 'user.png', alt: 'src', class: "w-36 h-36 inline-block rounded-full thumbnail" %>
     <h1 class="inline-block text-3xl"><%= @affiliate.fullname %></h1>
     <%= form.file_field :avatar, class: 'btn-thumbnail absolute bottom-0 left-32 file:border-0 file:rounded-full file:bg-green-700 file:px-2 file:text-white' %>
@@ -74,17 +74,3 @@
     </div>
   </div>
 <% end %>
-
-<script>
-  const btn = document.querySelector('.btn-thumbnail')
-
-  const loadFile = function(event) {
-    const output = document.querySelector('.thumbnail');
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function() {
-      URL.revokeObjectURL(output.src) // free memory
-    }
-  };
-
-  btn.addEventListener('change', loadFile)
-</script>

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # resources :affiliate
 
   get "admin" => "admin#index"
+  get "admin/payment_history" => "admin#payment_history"
   get "affiliate" => "affiliate#index"
   get "affiliate/profile" => "affiliate#profile"
   get "affiliate/profile/edit" => "affiliate#edit"
