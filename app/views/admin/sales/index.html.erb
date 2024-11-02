@@ -32,6 +32,9 @@
                     Status
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Remarks
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Action
                 </th>
             </tr>
@@ -68,12 +71,13 @@
                     <td class="px-6 py-4 capitalize">
                         <%= sale.status %>
                     </td>
+                    <td class="px-6 py-4 capitalize">
+                        <%= sale.remarks %>
+                    </td>
                     <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-green-800 dark:text-green-500 hover:underline">
-                            <%= link_to edit_admin_sale_path(sale), class: 'link' do %>
-                                Update
-                            <% end %>
-                        </a>
+                        <%= link_to edit_admin_sale_path(sale), class: 'font-medium text-green-800 dark:text-green-500 hover:underline' do %>
+                            Update
+                        <% end %>
                     </td>
                 </tr>
             <% end %>

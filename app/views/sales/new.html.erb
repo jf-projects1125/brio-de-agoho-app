@@ -31,7 +31,7 @@
             <%= form.email_field :email, required: true, required: true,  class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
         
             <%= form.label :affiliate_id, "Ref Code", class: 'text-end' %>
-            <%= form.text_field :affiliate_id, value: @ref_code, required: true, class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+            <%= form.text_field :affiliate_id, value: @ref_code, required: true, readonly: true, class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
         </div>
 
         <div class="text-center mt-5">

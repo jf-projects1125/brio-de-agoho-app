@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_18_022446) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_02_035614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,11 +95,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_18_022446) do
     t.integer "amount"
     t.integer "total_amount"
     t.integer "payout"
-    t.string "salesperson"
+    t.string "remarks"
+    t.bigint "salesperson_id"
     t.index ["affiliate_id"], name: "index_sales_on_affiliate_id"
+    t.index ["salesperson_id"], name: "index_sales_on_salesperson_id"
+  end
+
+  create_table "salespeople", force: :cascade do |t|
+    t.string "name"
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "sales", "affiliates"
+  add_foreign_key "sales", "salespeople"
 end

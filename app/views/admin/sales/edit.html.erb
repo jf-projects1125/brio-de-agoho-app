@@ -33,6 +33,11 @@
       <div class="col-span-3 w-full">
         <%= form.select(:status, ["Pending", "Paid"],{}, {:class => "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent w-full" }) %>
       </div>
+
+      <%= form.label :remarks, class: 'text-end' %>
+      <div class="col-span-3 w-full">
+        <%= form.select(:remarks, ["Fully Paid", "Downpayment"],{}, {:class => "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent w-full" }) %>
+      </div>
     </div>
     
     

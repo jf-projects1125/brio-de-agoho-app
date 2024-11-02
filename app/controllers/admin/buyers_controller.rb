@@ -23,6 +23,6 @@ class Admin::BuyersController < AdminController
 
   private
   def admin_sale_params
-    params.require(:sale).permit(:salesperson)
+    params.require(:sale).permit(:salesperson_id)
   end
 end

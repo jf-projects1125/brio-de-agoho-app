@@ -10,7 +10,6 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
     <div class="flex min-h-screen">
         <nav class="sidebar w-64 min-w-64 bg-green-800 text-white text-center uppercase font-medium">
@@ -20,7 +19,7 @@
                         Admin Dashboard
                     <% end %>
                 </li>
-                <li class="py-4 border-b <%= request.fullpath.include?('sales') ? 'bg-white text-green-800' : '' %>">
+                <li class="py-4 border-b <%= request.fullpath.include?('sales') && request.fullpath.length == 12 ? 'bg-white text-green-800' : '' %>">
                     <%= link_to admin_sales_path, class: 'link' do %>
                         Sales Summary & Payment Transactions
                     <% end %>
@@ -38,6 +37,11 @@
                 <li class="py-4 border-b <%= request.fullpath.include?('payment_history') ? 'bg-white text-green-800' : '' %>">
                     <%= link_to admin_payment_history_path, class: 'link' do %>
                         Payment History
+                    <% end %>
+                </li>
+                <li class="py-4 border-b <%= request.fullpath.include?('salespeople') ? 'bg-white text-green-800' : '' %>">
+                    <%= link_to admin_salespeople_path, class: 'link' do %>
+                        Salespeople
                     <% end %>
                 </li>
                 <li class="py-4 border-b">

@@ -27,6 +27,6 @@ class Admin::SalesController < AdminController
 
   private
   def admin_sale_params
-    params.require(:sale).permit(:transaction_date, :payment_method, :purchase_share, :amount, :total_amount, :payout, :status)
+    params.require(:sale).permit(:transaction_date, :payment_method, :purchase_share, :amount, :total_amount, :payout, :status, :remarks)
   end
 end

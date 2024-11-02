@@ -6,6 +6,8 @@ class Sale < ApplicationRecord
   scope :pending, -> { where(status: "Pending") }
   scope :paid, -> { where(status: "Paid") }
 
+  belongs_to :salesperson, optional: true
+
   def buyer_name
     return "#{self.firstname} #{self.lastname}"
   end

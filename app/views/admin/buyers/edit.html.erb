@@ -23,11 +23,10 @@
       <%= form.label :email, class: 'text-end' %>
       <%= form.email_field :email, required: true, class: "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
 
-      <%= form.label :salesperson, class: 'text-end' %>
+      <%= form.label :salesperson_id, "Salesperson", class: 'text-end' %>
       
       <div class="col-span-3 w-full">
-        <%= form.select(:salesperson, ["Salesperson - 1", "Salesperson - 2", "Salesperson - 3"],{required: true}, {:class => "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent w-full" }) %>
-        
+        <%= form.collection_select(:salesperson_id, Salesperson.active, :id, :name, { include_blank: true }, {:class => "border-transparent border-b-gray-500 focus:border-transparent focus:border-b-gray-500 focus:ring-transparent w-full" }) %>
       </div>
     
     </div>
