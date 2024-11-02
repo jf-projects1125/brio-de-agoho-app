@@ -3,7 +3,7 @@ class Admin::SalespeopleController < AdminController
 
   # GET /admin/salespeople or /admin/salespeople.json
   def index
-    @admin_salespeople = Salesperson.all
+    @admin_salespeople = Salesperson.order(name: :asc)
   end
 
   # GET /admin/salespeople/1 or /admin/salespeople/1.json
