@@ -31,9 +31,11 @@
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         <%= affiliate.id.to_s.rjust(4, '0') %>
                     </th>
-                    <td class="px-6 py-4">
-                        <%= affiliate.fullname %>
-                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <%= link_to admin_affiliate_path(affiliate), class: 'link' do %>
+                            <%= affiliate.fullname %>
+                        <% end %>
+                    </th>
                     <td class="px-6 py-4">
                         <%= affiliate.email %>
                     </td>

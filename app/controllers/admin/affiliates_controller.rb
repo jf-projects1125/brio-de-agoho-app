@@ -7,6 +7,19 @@ class Admin::AffiliatesController < AdminController
     @admin_affiliate = Affiliate.new
   end
 
+  def show
+    @affiliate = Affiliate.find(params[:id])
+
+    if @affiliate.birthday.present?
+      now = Time.now.utc.to_date
+      @age = now.year - @affiliate.birthday.to_date.year
+
+      if (now.month < @affiliate.birthday.to_date.month)
+        @age = @age - 1
+      end
+    end
+  end
+
   def create
     @admin_affiliate = Affiliate.new(admin_affiliate_params)
 
