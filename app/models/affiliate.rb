@@ -15,4 +15,12 @@ class Affiliate < ApplicationRecord
   def ref_code
     return self.id.to_s.rjust(4, '0')
   end
+
+  def payout
+    return self.sales.any? ? self.sales.sum(:payout) : 0
+  end
+
+  def last_payment
+    return self.sales.any? ? self.sales.last.updated_at.strftime("%B %d, %Y") : ''
+  end
 end
