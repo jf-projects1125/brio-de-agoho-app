@@ -1,6 +1,14 @@
 class Admin::SalesController < AdminController
   def index
-    @admin_sales = Sale.all
+    respond_to do |format|
+      format.html do
+        @admin_sales = Sale.all
+      end
+      format.xlsx do
+        @admin_sales = Sale.all
+        render xlsx: 'admin/sales', template: 'admin/sales/template'
+      end
+    end
   end
 
   def show

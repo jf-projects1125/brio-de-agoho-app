@@ -1,5 +1,9 @@
 <h1 class="text-2xl text-green-800 text-center uppercase font-medium mt-12 uppercase">Sales Summary & Payment Transactions</h1>
 
+<div class="text-end">
+    <%= link_to 'Export to Excel', admin_sales_path(format: :xlsx), target: :_blank, class: 'py-2 px-4 bg-green-800 text-white rounded' %>
+</div>
+
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-12">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 overflow-x-scroll max-w-full">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
