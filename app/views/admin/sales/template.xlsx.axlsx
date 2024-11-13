@@ -1,7 +1,7 @@
 wb = xlsx_package.workbook
 
 wb.add_worksheet(name: "Sale") do |sheet|
-  sheet.add_row ['Client Name', 'Referral Code', 'Trans. Date', 'Payment Method', 'Purchase Share', 'Amount', 'Total', 'Payout', 'Status', 'Remarks']
+  sheet.add_row ['Client Name', 'Referral Code', 'Transaction Date', 'Payment Method', 'Purchase Share', 'Amount', 'Total', 'Payout', 'Status', 'Remarks']
   @admin_sales.each do |sale|
     trans_date = sale.transaction_date.present? ? sale.transaction_date.strftime("%B %d, %Y") : ''
     sheet.add_row [sale.affiliate.fullname, sale.ref_code, trans_date, sale.payment_method, sale.purchase_share, sale.amount, sale.total_amount, sale.payout, sale.status, sale.remarks]
