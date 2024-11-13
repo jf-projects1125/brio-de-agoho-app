@@ -1,6 +1,14 @@
 class Admin::AffiliatesController < AdminController
   def index
-    @admin_affiliates = Affiliate.all
+    respond_to do |format|
+      format.html do
+        @admin_affiliates = Affiliate.all
+      end
+      format.xlsx do
+        @admin_affiliates = Affiliate.all
+        render xlsx: 'admin/affiliates', template: 'admin/affiliates/template'
+      end
+    end
   end
 
   def new

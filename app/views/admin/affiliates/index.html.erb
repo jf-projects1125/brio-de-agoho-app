@@ -1,6 +1,7 @@
 <h1 class="text-2xl text-green-800 text-center uppercase font-medium mt-12">Affiliate Database</h1>
 
 <div class="text-end">
+    <%= link_to 'Export to Excel', admin_affiliates_path(format: :xlsx), target: :_blank, class: 'py-2 px-4 bg-green-800 text-white rounded' %>
     <%= link_to 'Add New', new_admin_affiliate_path, class: 'py-2 px-4 bg-green-800 text-white rounded' %>
 </div>
 

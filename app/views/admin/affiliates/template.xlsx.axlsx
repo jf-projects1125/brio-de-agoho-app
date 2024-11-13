@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Sale") do |sheet|
+  sheet.add_row ['Referral Code', 'Seller Name', 'Email Address', 'Address', 'Contact No.']
+  @admin_affiliates.each do |affiliate|
+    sheet.add_row [affiliate.ref_code, affiliate.fullname, affiliate.email, affiliate.address, affiliate.mobile]
+  end
+end
