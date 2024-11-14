@@ -79,7 +79,7 @@
                         <%= sale.status %>
                     </td>
                     <td class="px-6 py-4 capitalize">
-                        <%= sale.salesperson.name %>
+                        <%= sale.salesperson.present? ? sale.salesperson.name : '' %>
                     </td>
                     <td class="px-6 py-4 capitalize">
                         <%= sale.remarks %>
