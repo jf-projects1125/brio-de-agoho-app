@@ -16,22 +16,22 @@
             <% end %>
         <% end %>
 
-        <div class="grid grid-cols-4 w-8/12 ml-20 gap-2 items-center mt-5">
-            <%= form.label :firstname, class: 'text-end' %>
-            <%= form.text_field :firstname, required: true, required: true,  class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+        <div class="md:grid md:grid-cols-4 md:w-8/12 md:ml-20 md:gap-2 md:items-center mt-5 sm:space-y-0">
+            <%= form.label :firstname, class: 'sm:text-end block sm:inline' %>
+            <%= form.text_field :firstname, required: true, required: true,  class: "block w-full sm:inline border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent md:col-span-3" %>
             <%= form.text_field :status, value: "Pending", class: "hidden" %>
 
-            <%= form.label :lastname, class: 'text-end' %>
-            <%= form.text_field :lastname, required: true, required: true,  class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+            <%= form.label :lastname, class: 'sm:text-end block sm:inline' %>
+            <%= form.text_field :lastname, required: true, required: true,  class: "block w-full sm:inline border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent md:col-span-3" %>
         
-            <%= form.label :contact_no, "Contact No.", class: 'text-end' %>
-            <%= form.text_field :contact_no, required: true, required: true,  class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+            <%= form.label :contact_no, "Contact No.", class: 'md:text-end block sm:inline' %>
+            <%= form.text_field :contact_no, required: true, required: true,  class: "block w-full sm:inline border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent md:col-span-3" %>
         
-            <%= form.label :email, class: 'text-end' %>
-            <%= form.email_field :email, required: true, required: true,  class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
-        
-            <%= form.label :affiliate_id, "Ref Code", class: 'text-end' %>
-            <%= form.text_field :affiliate_id, value: @ref_code, required: true, readonly: true, class: "border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent col-span-3" %>
+            <%= form.label :email, class: 'md:text-end block sm:inline' %>
+            <%= form.email_field :email, required: true, required: true,  class: "block w-full sm:inline border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent md:col-span-3 sm:w-full" %>
+            
+            <%= form.label :affiliate_id, "Ref Code", class: 'md:text-end block sm:inline' %>
+            <%= form.text_field :affiliate_id, value: @ref_code, required: true, readonly: true, class: "block w-full sm:inline border-transparent border-b-gray-500 bg-transparent focus:border-transparent focus:border-b-gray-500 focus:ring-transparent md:col-span-3 sm:w-full" %>
         </div>
 
         <div class="text-center mt-5">
