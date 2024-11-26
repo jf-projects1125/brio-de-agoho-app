@@ -7,7 +7,7 @@ class Admin::AffiliatesController < AdminController
       format.xlsx do
         @admin_affiliates = Affiliate.all
         render xlsx: 'admin/affiliates', template: 'admin/affiliates/template'
-      end    
+      end
     end
   end
 
