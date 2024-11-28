@@ -12,9 +12,15 @@
   </head>
 
   <body>
-    <div class="flex min-h-screen">
-        <nav class="sidebar w-64 min-w-64 bg-green-800 text-white text-center uppercase font-medium">
-            <ul>
+    <div class="flex min-h-screen" data-controller="navigation">
+        <nav class="sidebar w-full fixed md:static z-10 md:w-64 min-w-64 bg-green-800 text-white text-center uppercase font-medium md:block">
+            <div class="flex">
+                <svg xmlns="http://www.w3.org/2000/svg" class="p-2 menu-btn md:hidden" width="50" height="50" fill="#fff" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="p-2 hidden close-btn md:hidden" width="50" height="50" fill="#fff" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>
+            </div>
+
+            <ul class="hidden md:block">
                 <li class="py-4 border-b text-xl text-orange-400 <%= request.fullpath.length == 10 ? 'bg-white' : '' %>">
                     <%= link_to affiliate_path, class: 'link' do %>
                         Dashboard
@@ -47,7 +53,7 @@
                 </li>
             </ul>
         </nav>
-        <main class="flex-1 m-4 w-full overflow-hidden">
+        <main class="flex-1 m-4 w-full overflow-hidden mt-20 md:mt-4">
             <p class="notice"><%= notice %></p>
             <p class="alert"><%= alert %></p>
             <%= yield %>
