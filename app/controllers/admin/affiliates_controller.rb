@@ -2,10 +2,10 @@ class Admin::AffiliatesController < AdminController
   def index
     respond_to do |format|
       format.html do
-        @admin_affiliates = Affiliate.all
+        @admin_affiliates = Affiliate.all.order(id: :asc)
       end
       format.xlsx do
-        @admin_affiliates = Affiliate.all
+        @admin_affiliates = Affiliate.all.order(id: :asc)
         render xlsx: 'admin/affiliates', template: 'admin/affiliates/template'
       end
     end
